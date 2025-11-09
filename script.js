@@ -294,7 +294,7 @@ function showKeyboardShortcuts() {
     const activeContainer = currentMode === 'practice' ? practiceContainer : examContainer;
     activeContainer.appendChild(shortcuts);
     
-    // 3秒後自動隱藏
+    // 1.5秒後自動隱藏
     setTimeout(() => {
         shortcuts.classList.add('fade-out');
         setTimeout(() => {
@@ -302,7 +302,7 @@ function showKeyboardShortcuts() {
                 shortcuts.parentNode.removeChild(shortcuts);
             }
         }, 500);
-    }, 3000);
+    }, 1500);
 }
 
 // 更新練習模式題目
