@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計算機組織與結構測驗平台</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 頂部導航 -->
+         <center>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>計算機組織與結構測驗平台</h1>
+                <span>《計算機組織與結構概論》第1～6章 選擇題題庫</span>
+            </div>
+        </nav>
+         </center>
+
+
+        <!-- 主內容區域 -->
+        <main class="main-content">
+            <!-- 模式選擇頁面 -->
+            <section id="mode-selection" class="mode-selection active">
+                <div class="mode-card-container">
+                    <div class="mode-card">
+                        <div class="card-icon">📚</div>
+                        <h3>練習模式</h3>
+                        <p>自由練習所有題目，即時查看答案與解析，適合學習階段使用</p>
+                        <button id="practice-mode" class="primary-btn">開始練習</button>
+                    </div>
+                    
+                    <div class="mode-card">
+                        <div class="card-icon">📝</div>
+                        <h3>模擬考模式</h3>
+                        <p>限時測驗，隨機抽取20題，模擬真實考試情境</p>
+                        <button id="exam-mode" class="primary-btn">開始測驗</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 練習模式頁面 -->
+            <section id="practice-container" class="quiz-container">
+                <div class="quiz-header">
+                    <div class="header-left">
+                        <h2>練習模式</h2>
+                        <div class="question-counter">
+                            <span id="current-q">1</span> / <span id="total-q">30</span>
+                        </div>
+                    </div>
+                    <button id="back-to-practice-mode" class="secondary-btn">返回模式選擇</button>
+                </div>
+
+                <div class="quiz-content">
+                    <div class="question-section">
+                        <div id="question-text" class="question-text"></div>
+                        <div id="options-container" class="options-container"></div>
+                    </div>
+
+                    <div id="answer-explanation" class="answer-explanation">
+                        <div class="explanation-header">
+                            <h3>📖 答案解析</h3>
+                        </div>
+                        <div class="explanation-content">
+                            <div class="correct-answer-box">
+                                <strong>正確答案：</strong>
+                                <span id="correct-answer"></span>
+                            </div>
+                            <div class="explanation-box">
+                                <strong>解析說明：</strong>
+                                <p id="explanation-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quiz-footer">
+                    <div class="navigation-controls">
+                        <button id="prev-btn" class="nav-btn">
+                            ← 上一題
+                        </button>
+                        <button id="next-btn" class="nav-btn">
+                            下一題 →
+                        </button>
+                    </div>
+                    <div class="action-controls">
+                        <button id="show-answer" class="secondary-btn">顯示答案</button>
+                        <button id="reset-practice" class="outline-btn">結束練習</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 模擬考模式頁面 -->
+            <section id="exam-container" class="quiz-container">
+                <div class="quiz-header">
+                    <div class="header-left">
+                        <h2>模擬考模式</h2>
+                        <div class="exam-info">
+                            <div class="info-item">
+                                <span class="info-label">剩餘時間：</span>
+                                <span id="timer" class="timer">50:00</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">答題進度：</span>
+                                <span id="progress" class="progress">0/20</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="reset-exam" class="secondary-btn">結束測驗</button>
+                </div>
+
+                <div class="quiz-content">
+                    <div class="question-section">
+                        <div id="exam-question-text" class="question-text"></div>
+                        <div id="exam-options-container" class="options-container"></div>
+                    </div>
+                </div>
+
+                <div class="quiz-footer">
+                    <div class="exam-controls">
+                        <button id="submit-exam" class="primary-btn" disabled>提交答案</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 結果頁面 -->
+            <section id="result-container" class="result-container">
+                <div class="result-header">
+                    <div class="result-icon" id="result-icon">🎉</div>
+                    <h2 id="result-title">測驗完成</h2>
+                    <div id="score-display" class="score-display"></div>
+                    <div class="result-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="correct-count">0</div>
+                            <div class="stat-label">答對題數</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-count">0</div>
+                            <div class="stat-label">總題數</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="accuracy">0%</div>
+                            <div class="stat-label">正確率</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="time-used">00:00</div>
+                            <div class="stat-label">用時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-content">
+                    <div class="result-actions">
+                        <button id="review-answers" class="action-btn review-btn">
+                            <span class="btn-icon">📖</span>
+                            檢視答案
+                        </button>
+                        <button id="retry-exam" class="action-btn retry-btn">
+                            <span class="btn-icon">🔄</span>
+                            重新測驗
+                        </button>
+                        <button id="back-to-mode" class="action-btn mode-btn">
+                            <span class="btn-icon">🏠</span>
+                            返回首頁
+                        </button>
+                    </div>
+
+                    <div class="result-details-section">
+                        <div class="section-header">
+                            <h3>📊 詳細結果</h3>
+                            <div class="result-filter">
+                                <button class="filter-btn active" data-filter="all">全部</button>
+                                <button class="filter-btn" data-filter="correct">答對</button>
+                                <button class="filter-btn" data-filter="incorrect">答錯</button>
+                            </div>
+                        </div>
+                        <div id="result-details" class="result-details"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
