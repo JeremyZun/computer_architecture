@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網路概論線上測驗 - RWD與滑動版</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="start-screen" class="screen active">
+            <h1>網路概論自我評量</h1>
+            <p>範圍：第三章 OSI模型 & 第四章 網路傳輸媒介與設備</p>
+            <p>總題數：20 題</p>
+            <p class="instruction">
+                <small>💻 支援鍵盤左右鍵 | 📱 支援左右滑動</small>
+            </p>
+            <button id="start-btn" class="btn primary">開始測驗</button>
+        </div>
+
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <span id="chapter-tag" class="chapter-badge">章節</span>
+                <div class="progress-info">
+                    題目 <span id="current-q">1</span> / <span id="total-q">20</span>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <h2 id="question-text">題目載入中...</h2>
+                <div id="options-container" class="options-grid">
+                    </div>
+            </div>
+
+            <div class="btn-group">
+                <button id="prev-btn" class="btn secondary hidden">上一題</button>
+                <button id="next-btn" class="btn primary hidden">下一題</button>
+            </div>
+        </div>
+
+        <div id="result-screen" class="screen">
+            <h2>測驗結束</h2>
+            <div class="score-card">
+                <p>你的得分</p>
+                <div id="final-score" class="big-score">0</div>
+                <p>總分：100</p>
+            </div>
+            <p id="result-comment"></p>
+            
+            <button id="review-btn" class="btn secondary hidden" style="margin-bottom: 15px;">查看錯題</button>
+            <div id="review-container" class="review-list hidden">
+                </div>
+
+            <button id="restart-btn" class="btn primary">重新測驗</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
