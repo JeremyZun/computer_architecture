@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計算機組織與結構期末測驗</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>計算機組織與結構概論</h1>
+            <p>期末考題庫模擬測驗 (共 40 題)</p>
+        </header>
+
+        <div id="quiz-container">
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="stats">
+                <span id="question-count">題目: 1 / 40</span>
+                <span id="score-display">得分: 0</span>
+            </div>
+
+            <div class="card">
+                <h2 id="question-text">題目載入中...</h2>
+                <div class="options-container" id="options-container">
+                    </div>
+            </div>
+
+            <div id="feedback-area" class="hidden">
+                <div id="feedback-message"></div>
+                <div class="explanation-box">
+                    <strong>詳解：</strong>
+                    <p id="explanation-text"></p>
+                </div>
+                <button id="next-btn" class="btn">下一題</button>
+            </div>
+        </div>
+
+        <div id="result-container" class="hidden">
+            <h2>測驗結束</h2>
+            <div class="final-score" id="final-score"></div>
+            <p id="result-message"></p>
+            
+            <div class="result-actions">
+                <button id="review-btn" class="btn hidden">檢視錯題</button>
+                <button onclick="restartQuiz()" class="btn btn-primary">重新測驗</button>
+            </div>
+        </div>
+
+        <div id="review-container" class="hidden">
+            <h2>錯題回顧</h2>
+            <div id="review-list">
+                </div>
+            <button onclick="restartQuiz()" class="btn btn-primary">返回並重新測驗</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
